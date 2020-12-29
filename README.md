@@ -9,6 +9,7 @@
  - 内网映射，我用的NATAPP(也可以用其他的)
  - 微信公众号/基本配置（服务器配置启用token）
  - 运行main.py启动最终本地服务
+ - 其他补充
 
 ## 1.搭建本地服务
 
@@ -94,8 +95,26 @@ python main.py 80
 
 关注公众号会有event触发并提示用户，进入公众号输入框输入也会有本地python服务的返回！
 
+## 5. 其他不定时补充
 
+5.1 如果想输入文字然后回复图片（以临时素材为例）<br>
+[素材管理](https://developers.weixin.qq.com/doc/offiaccount/Asset_Management/New_temporary_materials.html)
+```md
+(1)http请求方式: GET
+https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=APPID&secret=APPSECRET
+会返回如下json
+{
+"access_token": "40_xxxxxxxQM",
+"expires_in": 7200
+}
+(2)cd到需要上传的图片的文件夹下，然后
+curl -F media=@xiaobai.jpeg "https://api.weixin.qq.com/cgi-bin/media/upload?access_token=40_xxxxxxxQM&type=image"
+会返回如下json
+{"type":"image","media_id":"-jAxxxxxxK7A","created_at":1609251287,"item":[]}
+(3)得到的media_id就可以写传入ImageMsg初始化中mediaId参数
+```
 
+5.2 xxx<br>
 
 
 
