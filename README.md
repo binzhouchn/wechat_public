@@ -24,7 +24,8 @@ python main.py 80
 - 修改隧道配置：本地地址：127.0.0.1；本地端口：80（配置完成后会有一个公网域名映射到本地127.0.0.1:80）
 
 ```shell
-# 启动natapp服务
+# cd到下载的natapp客户端
+# 启动natapp服务(我的是mac)
 ./natapp -authtoken=xxxxx
 ```
 
