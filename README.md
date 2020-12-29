@@ -92,7 +92,7 @@ class Handle(object):
 python main.py 80
 ```
 
-关注公众号会有event触发并提示用户，进入公众号输入框输入也会有该后台python服务的返回！
+关注公众号会有event触发并提示用户，进入公众号输入框输入也会有本地python服务的返回！
 
 
 
