@@ -119,7 +119,6 @@ curl -F media=@xiaobai.jpeg "https://api.weixin.qq.com/cgi-bin/media/upload?acce
 
 
 
-
 ---
 
 注：本地服务为天气查询，[参考](https://github.com/aichibazhang/python-weather-api)<br>
