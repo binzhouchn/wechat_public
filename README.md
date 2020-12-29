@@ -1,6 +1,6 @@
 # 微信公众号搭建
 
-本文档
+本文档是在已申请个人公众号（免费）的情况下，描述如何将本地的服务与微信公众号联动，比如提供用户天气查询服务、机器人问答服务、图像识别等等
 
 [官方指南](https://developers.weixin.qq.com/doc/offiaccount/Getting_Started/Getting_Started_Guide.html)<br>
 
