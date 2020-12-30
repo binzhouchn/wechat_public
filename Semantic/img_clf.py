@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+## 用百度SDK（安装aip）
 from aip import AipImageClassify
 import urllib
 from config import APP_ID, API_KEY, SECRET_KEY
@@ -31,7 +32,7 @@ class ImageCLF:
 
 imageclf = ImageCLF()
 
-
+## 不用百度SDK
 # import requests
 # import base64
 # import urllib

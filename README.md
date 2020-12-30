@@ -98,7 +98,8 @@ python main.py 80
 ## 5. 其他不定时补充
 
 5.1 如果想输入文字然后回复图片（以临时素材为例）<br>
-[素材管理](https://developers.weixin.qq.com/doc/offiaccount/Asset_Management/New_temporary_materials.html)
+
+[素材管理](https://developers.weixin.qq.com/doc/offiaccount/Asset_Management/New_temporary_materials.html)<br>
 ```md
 (1)http请求方式: GET
 https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=APPID&secret=APPSECRET
@@ -114,7 +115,27 @@ curl -F media=@xiaobai.jpeg "https://api.weixin.qq.com/cgi-bin/media/upload?acce
 (3)得到的media_id就可以写传入ImageMsg初始化中mediaId参数
 ```
 
-5.2 xxx<br>
+5.2 如果想输入图片然后回复图片种类等信息img_clf.py（以调用百度api接口为例）<br>
+
+[百度API参考](https://cloud.baidu.com/doc/IMAGERECOGNITION/s/Kk3bcxbxj)<br>
+[百度SDK文档地址](https://cloud.baidu.com/doc/IMAGERECOGNITION/s/4k3bcxj1m)<br>
+```md
+(1)登录百度智能云这个就不多讲了
+申请应用就能得到一些ID和KEY，如果用百度的SDK则不需要申请access_token，如果不用则看(2)
+(2)申请access_token
+[百度access token获取](https://ai.baidu.com/ai-doc/REFERENCE/Ck3dwjhhu)
+https://aip.baidubce.com/oauth/2.0/token?grant_type=client_credentials&client_id=GQxxxxLkq&client_secret=pSxxxxxrob
+会返回如下json
+{
+"refresh_token": "25.xxx87",
+"expires_in": 2592000,
+"session_key": "9mzxxxxKKg==",
+"access_token": "24.xxxxxxx87",
+"scope": "public vis-classify_..",
+"session_secret": "91xxx9d"
+}
+得到access_token后就能调百度接口了，具体见百度API参考
+```
 
 
 
