@@ -6,6 +6,7 @@ import reply
 import receive
 import web
 from Semantic.weather_query import weather
+from Semantic.img_clf import imageclf
 class Handle(object):
     def POST(self):
         try:
@@ -21,12 +22,18 @@ class Handle(object):
                 # res = content + ", this is my first wechat dev!"
                 if content == '小白':
                     # 如果文字是小白，则返回一张小白（我家的一只法斗）的image（图片存在临时素材库中，方法详见readme）
-                    replyMsg = reply.ImageMsg(toUser, fromUser,
-                                              "-jAxxxxxxK7A")
+                    replyMsg = reply.ImageMsg(toUser, fromUser, "-jAxxxxxxK7A")
                 else:
                     # 如果是其他文字，则调用查询天气方法，返回text
                     res = weather.query(content)
                     replyMsg = reply.TextMsg(toUser, fromUser, res)
+                return replyMsg.send()
+            elif isinstance(recMsg, receive.Msg) and recMsg.MsgType == 'image':
+                # 用户输入图片，调用百度接口返回该图片所属种类text
+                toUser = recMsg.FromUserName
+                fromUser = recMsg.ToUserName
+                res = imageclf.image_classif(recMsg.PicUrl, baike_num=2)
+                replyMsg = reply.TextMsg(toUser, fromUser, res)
                 return replyMsg.send()
             elif isinstance(recMsg, receive.EMsg) and recMsg.MsgType == 'event':
                 # 如果触发event，比如关注了该公众号则返回text给到用户
