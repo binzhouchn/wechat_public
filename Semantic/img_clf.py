@@ -30,7 +30,7 @@ class ImageCLF:
         res = self.client.advancedGeneral(image, options)
         return str(res)
 
-    """ 读取图片 """
+    """ 读取图片(如果图片存本地该函数会用到) """
     def get_file_content(self, filePath):
         with open(filePath, 'rb') as fp:
             return fp.read()
